@@ -1,0 +1,27 @@
+<div class="container">
+  <h1><%= @list.name %></h1>
+
+  <% @movies.each do |movie| %>
+  <ul>
+    <li><%= link_to(movie.title, movie_path(movie)) %></li>
+    <% @bookmarks.each do |bookmark| %>
+    <% if bookmark.movie == movie %>
+      <ul>
+        <li><%= bookmark.comment  %></li>
+        <%= link_to('Delete', bookmark_path(bookmark), method: :delete) %>
+      </ul>
+      <% end %>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit "Place a bookmark" %>
+  <% end %>
+
+
+  <%= link_to 'Go back', lists_path %>
+</div>
