@@ -1,6 +1,10 @@
 <div class="container">
   <h1><%= @list.name %></h1>
-
+  <div class="image">
+    <% if @list.image.attached? %>
+     <%= cl_image_tag @list.image.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
   <% @movies.each do |movie| %>
   <ul>
     <li><%= link_to(movie.title, movie_path(movie)) %></li>

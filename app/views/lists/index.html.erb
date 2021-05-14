@@ -1,18 +1,30 @@
 <div class="container">
-  <h1>Lists</h1>
-  <% @lists.each do |list| %>
-    <ul>
-      <li><%= link_to(list.name, list_path(list)) %></li>
-    </ul>
+  <div class="list-card">
+    <h1>Explore all our species</h1>
+    <% @lists.each do |list| %>
+      <ul>
+        <li class="list-content">
+          <div class="list-link">
+          🦈 <%= link_to(list.name, list_path(list)) %>
+          </div>
+          <div class="delete-button">
+            <%= link_to( "Delete", list_path(list), method: :delete ) %>
+          </div>
+        </li>
+      </ul>
   <% end %>
-
-  <p>Create a new list</p>
-  <%= simple_form_for(@list) do |f| %>
-  <div class="list-name">
-    <%= f.input :name %>
   </div>
-  <%= f.submit %>
-  <% end %>
+
+  <div class="creation-form">
+    <p>Enter your favorite shark</p>
+    <%= simple_form_for(@list) do |f| %>
+    <div class="list-name">
+      <%= f.input :name %>
+      <%= f.input :image, as: :file %>
+    </div>
+    <%= f.submit class:"btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 

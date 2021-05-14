@@ -1,0 +1,29 @@
+.list-card {
+background-color: rgba(0, 0, 0, 0.5);
+padding: 16px;
+box-shadow: 2px;
+border-radius: 4px;
+margin-bottom: 16px;
+color: white;
+
+.list-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+  h1 {
+    font-size: 24px;
+    font-weight: lighter;
+    padding-bottom: 8px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+   a {
+    text-decoration: none;
+    color: white;
+
+   }
+
+}
